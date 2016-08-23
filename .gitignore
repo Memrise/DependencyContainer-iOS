@@ -1,0 +1,47 @@
+# based on https://github.com/github/gitignore/blob/master/Objective-C.gitignore
+
+# OS X
+.DS_Store
+
+## Build generated
+build/
+DerivedData
+
+#OS X
+.DS_Store
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+
+## CocoaPods
+Pods/
+
+## Misc
+.idea/
+.lastBuildTime
+
+# fastlane
+fastlane/test_output
+fastlane/README.md
+fastlane/report.xml
+
+# gcc coverage testing tool files
+
+*.gcno
+*.gcda
+*.gcov
+
