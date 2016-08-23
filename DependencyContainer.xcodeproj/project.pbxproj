@@ -12,6 +12,7 @@
 		0E83E6C71D6C58380026962F /* MRDependencyContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E83E6C41D6C58380026962F /* MRDependencyContainer.h */; };
 		0E83E6C81D6C58380026962F /* MRDependencyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E83E6C51D6C58380026962F /* MRDependencyContainer.m */; };
 		0E83E6CB1D6C58F40026962F /* MRDependencyContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E83E6CA1D6C58F40026962F /* MRDependencyContainerTests.swift */; };
+		0ED942031D6C916600BB38D7 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED942021D6C916600BB38D7 /* TestHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 		0E83E6C51D6C58380026962F /* MRDependencyContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRDependencyContainer.m; sourceTree = "<group>"; };
 		0E83E6C91D6C58F30026962F /* DependencyContainerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DependencyContainerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		0E83E6CA1D6C58F40026962F /* MRDependencyContainerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRDependencyContainerTests.swift; sourceTree = "<group>"; };
+		0ED942021D6C916600BB38D7 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		0ED942041D6C953400BB38D7 /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				0E83E6BC1D6C570D0026962F /* Info.plist */,
 				0E83E6CA1D6C58F40026962F /* MRDependencyContainerTests.swift */,
 				0E83E6C91D6C58F30026962F /* DependencyContainerTests-Bridging-Header.h */,
+				0ED942021D6C916600BB38D7 /* TestHelper.m */,
+				0ED942041D6C953400BB38D7 /* TestHelper.h */,
 			);
 			path = DependencyContainerTests;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E83E6CB1D6C58F40026962F /* MRDependencyContainerTests.swift in Sources */,
+				0ED942031D6C916600BB38D7 /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,16 +69,12 @@
 
 - (BOOL)preResolveCheck {
     if(self.state == MRDependencyContainerStateUninitialized) {
-        if(!NSClassFromString(@"XCTestCase")) {
-            NSAssert(NO, @"Run setup before access services");
-        }
+        NSAssert(NO, @"Run setup before access services");
         return NO;
     }
     
     if(self.state == MRDependencyContainerStateError) {
-        if(NSClassFromString(@"XCTestCase")) {
-            NSAssert(NO, @"Container is a Error state");
-        }
+        NSAssert(NO, @"Container is a Error state");
         return NO;
     }
     

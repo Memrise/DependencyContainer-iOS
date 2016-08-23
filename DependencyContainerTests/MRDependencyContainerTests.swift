@@ -147,7 +147,7 @@ class MRDependencyContainerTests: XCTestCase {
         XCTAssertNil(res2)
     }
     
-    func test_resolve_unknow() {
+    func test_resolve_unknow_dependency() {
         let container = MRDependencyContainer()
         
         let s = MRDefaultDependencyAssembler.createWithType(Test0BService.self, andBlock:{ (manager) -> AnyObject in
@@ -170,13 +170,16 @@ class MRDependencyContainerTests: XCTestCase {
         container.registerAssembler(s,withName:"testService")
         
         XCTAssertEqual(container.state, MRDependencyContainerState.Uninitialized)
-        let res1 = container.resolveByClass(Test0BService)
-        XCTAssertNil(res1)
+        let isException = self.mr_isExceptionInBlock() {
+            container.resolveByClass(Test0BService)
+        }
+        XCTAssertTrue(isException)
     }
     
     func test_sharedContainer() {
         let container = MRDependencyContainer.sharedContainer()
         XCTAssertNotNil(container)
     }
+    
     
 }
