@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DependencyContainer"
-  s.version      = "1.0"
+  s.version      = "2.0"
   s.summary      = "Trivial Dependency Container"
 
   s.homepage     = "http://github.com/Memrise/"
@@ -9,11 +9,10 @@ Pod::Spec.new do |s|
 
   s.authors      = {"William Boles" => "william@memrise.com", "Wojciech Chojnacki" => "wojtek@memrise.com", "Andy Uhnak" => "andy@memrise.com"}
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   s.source       = { :git => "git@github.com:Memrise/DependencyContainer-iOS.git", :tag => s.version, :branch => "master" }
-  s.source_files = "DependencyContainer/**/*.{h,m}"
-  s.public_header_files = "DependencyContainer/**/*.{h}"
+  s.source_files = "DependencyContainer/**/*.swift"
 
   s.requires_arc = true
 

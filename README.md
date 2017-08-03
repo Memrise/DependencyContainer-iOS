@@ -1,7 +1,7 @@
 # DependencyContainer-iOS
 
 
-Trivial Dependency Container for Memrise App.
+Trivial Dependency Container.
 
 
 ## Installation
@@ -21,12 +21,12 @@ Services registration & container setup.
 ```swift
 import DependencyContainer
 
-let container = MRDependencyContainer()
+let container = DependencyContainer()
         
-let assembler = MRDefaultDependencyAssembler.createWithType(TestService.self, andBlock:{ (manager) -> AnyObject in
+let assembler = DefaultDependencyAssembler(type: TestService.self) { container -> TestService in
     return TestService()
 })
-container.registerAssembler(assembler, withName:"testService")
+container.register(assembler)
 
 container.setup()
 
@@ -36,7 +36,7 @@ Resolving dependencies
 
 ```swift
 
-let service = container.resolveByClass(TestService)
+let service = container.resolve() as TestService?
 
 ```
 
@@ -45,12 +45,13 @@ let service = container.resolveByClass(TestService)
 ```objc
 @import DependencyContainer;
 
-MRDependencyContainer container = [[MRDependencyContainer alloc] init];
+DependencyContainer container = [[DependencyContainer alloc] init];
         
-MRDependencyAssembler *assembler = [MRDefaultDependencyAssembler createWithType:[TestService class] andBlock:^ id (MRDependencyContainer *container){
+DefaultLegacyDependencyAssembler *assembler = [DefaultLegacyDependencyAssembler createWithType:[TestService class] andBlock:^ id (DependencyContainer *container){
     return TestService();
 }];
-[container registerAssembler:assembler withName:"testService"];
+
+[container register:assembler];
 
 [container setup];
 
@@ -63,3 +64,4 @@ Resolving dependencies
 TestService *service = [container resolveByClass:TestService.class];
 
 ```
+
