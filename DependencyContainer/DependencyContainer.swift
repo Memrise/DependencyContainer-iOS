@@ -13,7 +13,7 @@ import Foundation
     case initializing
     case ready
     case error //not supported
-};
+}
 
 /**:
  
@@ -26,10 +26,9 @@ import Foundation
      Current container state
     */
     @objc public private(set) var state: DependencyContainerState = .uninitialized
-    
+
     private var resolveFunction: ((Any.Type) -> AnyObject?)?
-    
-    
+
     /**
         Initialize Container and create an object (from registered assemblers)
      
@@ -41,40 +40,40 @@ import Foundation
         resolvers = []
         var legacyInstances: [(Resolver, LegacyDependencyAssembler)] = []
         var instances: [(Resolver, DependencyAssembler)] = []
-        
+
         resolveFunction = {
             for (resolver, _) in legacyInstances {
                 if resolver.isAMatch(type: $0) {
                     return resolver.resolve()
                 }
             }
-            
+
             for (resolver, _) in instances {
                 if resolver.isAMatch(type: $0) {
                     return resolver.resolve()
                 }
             }
-            
+
             return nil
         }
-        
+
         for assembler in legacyAssemblers {
             let object = assembler.createInstance(with: self)
             let resolver = DefaultResolver(value: object, type:assembler.type)
             legacyInstances.append((resolver, assembler))
         }
-        
+
         for assembler in assemblers {
             let object = assembler.createInstance(with: self)
             let resolver = DefaultResolver(value: object, type:assembler.type)
             instances.append((resolver, assembler))
         }
-        
+
         for instanceTuple in legacyInstances {
             instanceTuple.1.setupInstance(instanceTuple.0.resolve(), with: self)
             resolvers.append(instanceTuple.0)
         }
-        
+
         for instanceTuple in instances {
             instanceTuple.1.setupInstance(instanceTuple.0.resolve(), with: self)
             resolvers.append(instanceTuple.0)
@@ -88,10 +87,10 @@ import Foundation
             }
             return nil
         }
-        
+
         state = .ready
     }
-    
+
     /**
      Register an assembler (class that defines how to create and setup an object in container)
      
@@ -99,16 +98,16 @@ import Foundation
        - parameters:
             - assembler assembler
      */
-    public func register(_ assembler:LegacyDependencyAssembler) {
+    public func register(_ assembler: LegacyDependencyAssembler) {
         legacyAssemblers.append(assembler)
     }
-    
-    public func register(_ assembler:DependencyAssembler) {
+
+    public func register(_ assembler: DependencyAssembler) {
         assemblers.append(assembler)
     }
-    
+
     @available(*, deprecated)
-    public func register(_ assembler:LegacyDependencyAssembler, withName: String) {
+    public func register(_ assembler: LegacyDependencyAssembler, withName: String) {
         legacyAssemblers.append(assembler)
     }
     /**
@@ -124,32 +123,30 @@ import Foundation
         guard preResolveCheck() else {
             return nil
         }
-        
-        return resolveFunction?(type)        
+
+        return resolveFunction?(type)
     }
 
     @objc public func resolve(byClass: AnyClass) -> AnyObject? {
         guard preResolveCheck() else {
             return nil
         }
-        
+
         return resolve(by: byClass)
     }
-    
-    
+
     public func resolve<T: AnyObject>(type: T.Type) -> T? {
         guard preResolveCheck() else {
             return nil
         }
-        
+
         return resolve(by: type) as? T
     }
-    
-    
+
     public func resolve<T: AnyObject>() -> T? {
         return resolve(by: T.self) as? T
     }
-    
+
     private func preResolveCheck() -> Bool {
         switch state {
         case .uninitialized:
@@ -164,7 +161,6 @@ import Foundation
     }
 }
 
-
 protocol Resolver {
     func isAMatch(type: Any.Type) -> Bool
     func resolve() -> AnyObject
@@ -173,21 +169,21 @@ protocol Resolver {
 struct DefaultResolver: Resolver {
     let value: AnyObject
     let type: Any.Type
-    
+
     func isAMatch(type clazz: Any.Type) -> Bool {
         if let c = clazz as? AnyClass {
             if value.isKind(of: c) {
                 return true
             }
         }
-        
+
         if type == clazz {
             return true
         }
-        
+
         return false
     }
-    
+
     func resolve() -> AnyObject {
         return value
     }
