@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 
-  s.name         = "DependencyContainer"
+  s.name         = "MRDependencyContainer"
   s.version      = "2.0"
   s.summary      = "Trivial Dependency Container"
 
-  s.homepage     = "http://github.com/Memrise/"
+  s.homepage     = "http://github.com/Memrise/DependencyContainer"
   s.license      = { :type => 'PRIVATE USE', :file => 'LICENSE.md' }
 
   s.authors      = {"William Boles" => "william@memrise.com", "Wojciech Chojnacki" => "wojtek@memrise.com", "Andy Uhnak" => "andy@memrise.com"}
