@@ -128,18 +128,10 @@ import Foundation
     }
 
     @objc public func resolve(byClass: AnyClass) -> AnyObject? {
-        guard preResolveCheck() else {
-            return nil
-        }
-
         return resolve(by: byClass)
     }
 
-    public func resolve<T: AnyObject>(type: T.Type) -> T? {
-        guard preResolveCheck() else {
-            return nil
-        }
-
+    public func resolve<T: AnyObject>(type: T.Type) -> T? {        
         return resolve(by: type) as? T
     }
 
