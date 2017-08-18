@@ -2,9 +2,9 @@
 Simple Dependency Container.
 
 ### Why?
-One of problems that we were struggle was lack of a control over modules initialisation. For example a service initialised in  one part of the application required some dependency that is created in the other place. Also both services must be created after service X is ready. 
+One of problems that we struggled with was the lack of control over modules initialisation. For example a service initialised in one part of the application required some dependency that was created in the another part. Also both services must be initialised after service *X* was initialised. 
 
-In `MRDependencyContainer` you define a factory (`DependencyAssembler`) which creates dependency. Then when the container is setup it uses Assembles to build dependencies. This way you have one place to register and create services and also you control when in the application lifecycle they are created.
+In `MRDependencyContainer` you define a factory (`DependencyAssembler`) which creates the dependency. Then when the container is setup it uses Assemblers to build these dependencies. This way you have one place to register and create services and control when in the application lifecycle they are created.
 
 ## Features
 
@@ -12,7 +12,6 @@ In `MRDependencyContainer` you define a factory (`DependencyAssembler`) which cr
 * Supports Obj-C
 * Specialised classes to define a process of creating dependency ('DependencyAssembler').
 * You decide when, in the application life cycle, services are created. 
-
 
 ## Installing
 
