@@ -8,7 +8,8 @@
 
 import Foundation
 
-@objc open class DefaultLegacyDependencyAssembler: NSObject, LegacyDependencyAssembler {
+@objcMembers
+open class DefaultLegacyDependencyAssembler: NSObject, LegacyDependencyAssembler {
     public let type: AnyClass
     let createBlock: (_ container: DependencyContainer) -> AnyObject
 

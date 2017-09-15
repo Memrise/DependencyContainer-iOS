@@ -98,7 +98,7 @@ import Foundation
        - parameters:
             - assembler assembler
      */
-    public func register(_ assembler: LegacyDependencyAssembler) {
+    @objc public func register(_ assembler: LegacyDependencyAssembler) {
         legacyAssemblers.append(assembler)
     }
 
@@ -107,7 +107,7 @@ import Foundation
     }
 
     @available(*, deprecated)
-    public func register(_ assembler: LegacyDependencyAssembler, withName: String) {
+    @objc public func register(_ assembler: LegacyDependencyAssembler, withName: String) {
         legacyAssemblers.append(assembler)
     }
     /**
