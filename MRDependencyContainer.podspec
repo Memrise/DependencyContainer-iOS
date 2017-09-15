@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MRDependencyContainer"
-  s.version      = "2.0"
+  s.version      = "2.1"
   s.summary      = "Trivial Dependency Container"
 
   s.homepage     = "http://github.com/Memrise/DependencyContainer-iOS"
