@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This repository is archived because the code was moved as a local pod to the main iOS app https://github.com/Memrise/Memrise-iOS.
+
 # MRDependencyContainer
 Simple Dependency Container.
 
